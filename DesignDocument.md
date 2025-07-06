@@ -29,6 +29,18 @@ This architecture demonstrates how strong frontend logic and storage simulation 
 
 ![Architecture Diagram](./public/image.png)
 
+
+## 📌 Assumptions
+
+* Ride statuses are updated manually by drivers; there is no GPS or real-time tracking.
+* Passwords are stored in plain text for simplicity; no encryption is implemented.
+* Only one user (driver or passenger) is active per session; multi-user support is not implemented.
+* All data is stored in the browser’s localStorage; no backend or server is used.
+* Female passengers can choose driver gender only for bike rides; other ride types do not support gender preference.
+* Drivers manually accept rides; no automatic ride assignment or queuing.
+* The app is designed to run on a single browser instance; no cross-device data syncing.
+
+
 ## 🗃️ Data Schema (TypeScript-Based Simulation)
 
 Though no database was used, the application simulates data modeling using TypeScript interfaces and stores all data in `localStorage`. This ensures structured data handling even in a purely frontend environment.
