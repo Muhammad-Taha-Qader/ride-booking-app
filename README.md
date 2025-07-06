@@ -185,3 +185,9 @@ Logout: Clears session and redirects to login.
 ## Notes
 - Platform has localStorage.ts file for initial population of data (will only be loaded if if no same key value is in local storage).
 - Platform can also handle dynamic creation of Accounts, rides and proper state management of rides and history.
+
+## 📄 Full Design Document
+
+For a detailed breakdown of the system design, UI/UX plans, architecture, and flow diagrams, refer to the full design document below:
+
+[![View Design Document](https://img.shields.io/badge/View--Design--Document-Click%20Here-blueviolet?style=for-the-badge)](https://github.com/Muhammad-Taha-Qader/ride-booking-app/blob/main/DesignDocument.md)
