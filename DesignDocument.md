@@ -27,25 +27,7 @@ This architecture demonstrates how strong frontend logic and storage simulation 
 
 ## 🏛️ High-Level Architecture Diagram
 
-```mermaid
-graph TD
-  A1[Login / Register Page] --> A2[Authentication Logic (auth.ts)]
-  A2 --> B1[LocalStorage (user data)]
-
-  A1 --> A3[Passenger Dashboard]
-  A1 --> A4[Driver Dashboard]
-
-  A3 --> B2[RideBookingForm Component]
-  A3 --> B3[RideHistoryList Component]
-  A3 --> C1[LocalStorage (rides)]
-
-  A4 --> B4[AvailableRidesList Component]
-  A4 --> B5[RideStatusManager Component]
-  A4 --> C1
-
-  B1 --> C1
-```
----
+![Architecture Diagram](./public/image.png)
 
 ## 🗃️ Data Schema (TypeScript-Based Simulation)
 
