@@ -5,13 +5,11 @@ import { getRides, getDrivers } from '../utils/localStorage';
 import type { Ride } from '../types/models';
 import RideBookingForm from '../components/RideBookingForm';
 import RideHistoryList from '../components/RideHistoryList';
-import Button from '../components/Button';
 import { Circle, CheckCircle, DirectionsRun, DoneAll, Logout } from '@mui/icons-material';
 
 const PassengerDashboard = () => {
   const [currentUser, setCurrentUser] = useState<{ id: string; gender: 'male' | 'female' } | null>(null);
   const [currentRide, setCurrentRide] = useState<Ride | null>(null);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [rides, setRides] = useState<Ride[]>([]);
   const navigate = useNavigate();
 
@@ -55,45 +53,68 @@ const PassengerDashboard = () => {
     }
   };
 
-  if (!currentUser) return <div>Loading...</div>;
+  if (!currentUser) return <div className="text-center text-gray-600">Loading...</div>;
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="p-4 max-w-4xl mx-auto"
+      className="min-h-screen login-gradient p-4 md:p-8"
     >
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-primary">Passenger Dashboard</h1>
-        <Button onClick={handleLogout} className="bg-red-500 hover:bg-red-600">
-          <Logout className="mr-2" /> Logout
-        </Button>
-      </div>
-      {!currentRide ? (
-        <RideBookingForm passenger={currentUser} onRideCreated={handleRideCreated} />
-      ) : (
-        <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-feminine mx-auto">
-          <h3 className="text-xl font-bold mb-4">Current Ride</h3>
-          <div className="space-y-2">
-            <p><strong>Pickup:</strong> {currentRide.pickup}</p>
-            <p><strong>Drop-off:</strong> {currentRide.drop}</p>
-            <p><strong>Ride Type:</strong> {currentRide.rideType}</p>
-            {currentRide.preferredDriverGender && (
-              <p><strong>Preferred Driver Gender:</strong> {currentRide.preferredDriverGender}</p>
-            )}
-            <p className="flex items-center">
-              <strong>Status:</strong> <span className="ml-2 flex items-center">{getStatusIcon(currentRide.status)} {currentRide.status}</span>
-            </p>
-            {currentRide.driverId && (
-              <p><strong>Driver:</strong> {getDrivers().find((d) => d.id === currentRide.driverId)?.name}</p>
-            )}
-          </div>
+      <div className="max-w-4xl mx-auto">
+        <div className="flex justify-between items-center mb-6 md:mb-8">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-2xl md:text-3xl font-bold text-white">Passenger Dashboard</h1>
+            <div className="w-12 h-1 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mt-2"></div>
+          </motion.div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center px-4 py-2 text-white font-medium rounded-lg btn-hover focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+          >
+            <Logout className="mr-2" /> Logout
+          </button>
         </div>
-      )}
-      <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4">Ride History</h3>
-        <RideHistoryList rides={rides.filter((r) => r.status === 'Completed')} />
+        {!currentRide ? (
+          <RideBookingForm passenger={currentUser} onRideCreated={handleRideCreated} />
+        ) : (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="w-full max-w-md mx-auto p-6 card-gradient rounded-2xl shadow-2xl"
+          >
+            <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-4">Current Ride</h3>
+            <div className="space-y-3">
+              <p className="text-gray-700"><strong>Pickup:</strong> {currentRide.pickup}</p>
+              <p className="text-gray-700"><strong>Drop-off:</strong> {currentRide.drop}</p>
+              <p className="text-gray-700"><strong>Ride Type:</strong> {currentRide.rideType}</p>
+              {currentRide.preferredDriverGender && (
+                <p className="text-gray-700"><strong>Preferred Driver Gender:</strong> {currentRide.preferredDriverGender}</p>
+              )}
+              <p className="flex items-center text-gray-700">
+                <strong>Status:</strong> <span className="ml-2 flex items-center">{getStatusIcon(currentRide.status)} {currentRide.status}</span>
+              </p>
+              {currentRide.driverId && (
+                <p className="text-gray-700"><strong>Driver:</strong> {getDrivers().find((d) => d.id === currentRide.driverId)?.name}</p>
+              )}
+            </div>
+          </motion.div>
+        )}
+        <div className="mt-8">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-4">Ride History</h3>
+            <RideHistoryList rides={rides.filter((r) => r.status === 'Completed')} />
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );

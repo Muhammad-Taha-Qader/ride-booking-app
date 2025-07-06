@@ -11,11 +11,11 @@ const RideHistoryList = ({ rides }: RideHistoryListProps) => {
   const getRideIcon = (rideType: Ride['rideType']) => {
     switch (rideType) {
       case 'Bike':
-        return <TwoWheeler className="text-primary" />;
+        return <TwoWheeler className="text-purple-600" />;
       case 'Car':
-        return <DirectionsCar className="text-primary" />;
+        return <DirectionsCar className="text-purple-600" />;
       case 'Rickshaw':
-        return <PedalBike className="text-primary" />;
+        return <PedalBike className="text-purple-600" />;
       default:
         return null;
     }
@@ -24,7 +24,7 @@ const RideHistoryList = ({ rides }: RideHistoryListProps) => {
   return (
     <div className="space-y-4">
       {rides.length === 0 ? (
-        <p>No completed rides.</p>
+        <p className="text-gray-600 text-center">No completed rides.</p>
       ) : (
         rides.map((ride, index) => (
           <motion.div
@@ -32,11 +32,11 @@ const RideHistoryList = ({ rides }: RideHistoryListProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 * index }}
-            className="p-4 bg-white rounded-2xl shadow-feminine"
+            className="p-4 card-gradient rounded-2xl shadow-2xl"
           >
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-3">
               {getRideIcon(ride.rideType)}
-              <div>
+              <div className="space-y-2 text-gray-700">
                 <p><strong>Pickup:</strong> {ride.pickup}</p>
                 <p><strong>Drop-off:</strong> {ride.drop}</p>
                 <p><strong>Ride Type:</strong> {ride.rideType}</p>
