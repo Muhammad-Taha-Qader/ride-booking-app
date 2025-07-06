@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-secondary text-gray-900;
+}
+
+/* .feminine-gradient {
+  /* background: linear-gradient(135deg, #a855f7 0%, #a855f7 100%); 
+} */
+
+/* New gradient backgrounds for login page */
+.login-gradient {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #C084FC 50%, #DDD6FE 100%);
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.9) 100%);
+  backdrop-filter: blur(20px);
+}
+
+/* Animated background elements */
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 0s;
+}
+
+.floating-element:nth-child(2) {
+  top: 20%;
+  right: 10%;
+  width: 120px;
+  height: 120px;
+  animation-delay: 2s;
+}
+
+.floating-element:nth-child(3) {
+  bottom: 20%;
+  left: 20%;
+  width: 100px;
+  height: 100px;
+  animation-delay: 4s;
+}
+
+.floating-element:nth-child(4) {
+  bottom: 10%;
+  right: 20%;
+  width: 60px;
+  height: 60px;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Wavy patterns */
+.wave-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Input focus effects */
+.input-focus {
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+}
+
+.input-focus:focus {
+  border-color: #a855f7;
+  box-shadow: 0 0 0 3px rgba(247, 203, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Button hover effects */
+.btn-hover {
+  transition: all 0.3s ease;
+  background: linear-gradient(135deg, #a855f7 0%, #ba76fa 100%);
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(247, 203, 0, 0.3);
+}
+
+/* Car icon animation */
+.car-icon {
+  animation: drive 3s ease-in-out infinite;
+}
+
+@keyframes drive {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+.floating-element,
+.wave-pattern {
+  pointer-events: none;
+}
