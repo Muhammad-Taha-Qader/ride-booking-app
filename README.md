@@ -33,9 +33,6 @@ This is a ride-sharing web application built for a hackathon, designed to provid
 The ERD below, rendered in Mermaid syntax, outlines the relationships between `Passenger`, `Driver`, and `Ride` entities.
 
 ```mermaid
-erDiagram
-    Passenger ||--o{ Ride : books
-    Driver ||--o{ Ride : assigned_to
     Passenger {
         string id PK
         string name
