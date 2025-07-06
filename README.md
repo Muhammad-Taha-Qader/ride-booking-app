@@ -32,7 +32,7 @@ This is a ride-sharing web application built for a hackathon, designed to provid
 ## Entity-Relationship Diagram (ERD)
 The ERD below, rendered in Mermaid syntax, outlines the relationships between `Passenger`, `Driver`, and `Ride` entities.
 
-```mermaid
+```
     Passenger {
         string id PK
         string name
@@ -59,7 +59,7 @@ The ERD below, rendered in Mermaid syntax, outlines the relationships between `P
         string status
         string preferredDriverGender
     }
-````
+```
 
 
 - Passenger: Represents users who book rides, with attributes for identification and authentication.
