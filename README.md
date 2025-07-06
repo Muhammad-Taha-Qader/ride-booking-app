@@ -186,7 +186,7 @@ Logout: Clears session and redirects to login.
 - Platform has localStorage.ts file for initial population of data (will only be loaded if if no same key value is in local storage).
 - Platform can also handle dynamic creation of Accounts, rides and proper state management of rides and history.
 
-## 📄 Full Design Document
+## 📄 Full Design/Architecture Document
 
 For a detailed breakdown of the system design, UI/UX plans, architecture, and flow diagrams, refer to the full design document below:
 
